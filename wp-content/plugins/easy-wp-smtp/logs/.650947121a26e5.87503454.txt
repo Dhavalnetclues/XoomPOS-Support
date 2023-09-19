@@ -1,0 +1,3 @@
+Easy WP SMTP debug log file
+
+[09/19/2023 7:00:34 AM] - Headers: , To: jignesh.patel@netclues.com, Subject: [ShopRight] Password Changed

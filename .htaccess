@@ -1,0 +1,24 @@
+# This file was updated by Duplicator on 2023-09-19 08:31:08.
+# See the original_files_ folder for the original source_site_htaccess file.
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /XoomPOS/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /XoomPOS/index.php [L]
+</IfModule>
+
+
+php_value upload_max_filesize 32M
+php_value post_max_size 64M
+php_value memory_limit 128M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# END WordPress
