@@ -1,7 +1,4 @@
 <?php
-if(!is_page('login') && !is_user_logged_in()){ 
-    wp_redirect( site_url()."/login" , 301 ); exit;
-}
 /**
  * @package Punte
  */
@@ -46,9 +43,9 @@ if(!is_page('login') && !is_user_logged_in()){
             //     wp_redirect( site_url()."/login" , 301 ); exit;
             // }
             
-            if (!is_page('login')) {
+            // if (!is_page('login')) {
                 do_action('punte_header');
-            }
+            // }
             ?>
 
             <div id="content" class="site-content">

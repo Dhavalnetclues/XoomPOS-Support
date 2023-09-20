@@ -17,14 +17,14 @@
                 <?php do_action( 'punte_top_header' ); ?>
 
                 <?php
-                if (is_user_logged_in()) {
+                // if (is_user_logged_in()) {
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'fallback_cb' => false,
                         'container' => false,
                         'menu_class' => 'clearfix punte-main-menu'
                     ));
-                }
+                // }
                 ?>
             </nav><!-- #site-navigation -->   
         </div>

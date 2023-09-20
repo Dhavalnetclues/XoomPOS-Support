@@ -17,14 +17,14 @@
 
             <nav id="site-navigation" class="main-navigation">
                 <?php
-                if (is_user_logged_in()) {
+                
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'fallback_cb' => false,
                         'container' => false,
                         'menu_class' => 'clearfix punte-main-menu'
                     ));
-                }
+                
                                 ?>
             </nav><!-- #site-navigation -->
 

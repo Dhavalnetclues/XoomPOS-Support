@@ -511,7 +511,7 @@ function ss_searchform( $form ) {
 } 
 add_shortcode('wpbsearch', 'ss_searchform');
 
-add_filter( 'wp_nav_menu_items', 'ss_login_logout_link', 10, 2 );
+// add_filter( 'wp_nav_menu_items', 'ss_login_logout_link', 10, 2 );
 	
 function ss_login_logout_link( $items, $args  ) {    
     if( is_user_logged_in()  ) {

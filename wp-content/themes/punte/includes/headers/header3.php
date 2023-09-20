@@ -25,14 +25,14 @@
         <nav id="site-navigation" class="main-navigation">
             <div class="punte-container">
                 <?php
-                if (is_user_logged_in()) {
+                // if (is_user_logged_in()) {
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'fallback_cb' => false,
                         'container' => false,
                         'menu_class' => 'clearfix punte-main-menu'
                     ));
-                }
+                // }
                 ?>
             </div>
         </nav><!-- #site-navigation -->
