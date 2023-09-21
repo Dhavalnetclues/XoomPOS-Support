@@ -469,7 +469,7 @@ function ss_logout_redirect( $redirect_to, $requested_redirect_to, $user ) {
 add_filter( 'logout_redirect', 'ss_logout_redirect', 10, 3 );
 
 //Add Dynamic store for shopright
-wpas_add_custom_taxonomy( 'my_custom_store', array( 'title' => 'Store List', 'label' => 'Store List', 'label_plural' => 'Store List', 'order' => "-2"  ) );
+// wpas_add_custom_taxonomy( 'my_custom_store', array( 'title' => 'Store List', 'label' => 'Store List', 'label_plural' => 'Store List', 'order' => "-2"  ) );
 
 
 // wpas_add_custom_field( 'ss_my_custom_store_value',  array( 'title' => __( 'Cusom Store', 'wpas' ), 'order' => 5 ) );
