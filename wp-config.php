@@ -135,7 +135,7 @@ define( 'NONCE_SALT',       'J/}@ZdB?&FPxVI/vv/K9&)iWJVl/:(7X(k%oS(;+khhldt_E5[|
  */
 
 $table_prefix = 'ss_';
-
+//Prefix
 
 /**
 
