@@ -486,7 +486,7 @@ function ss_search_form( $form ) {
  
     return $form;
 }
-add_filter( 'get_search_form', 'ss_search_form' );
+add_filter( 'get_search_form', 'ss_search_form' );  
 
 //Logout Time
 add_filter( 'auth_cookie_expiration', 'ss_logout_timeout' );
@@ -562,15 +562,15 @@ function xp_window_pos_list() {
           <article class="single-post list-view">
             <div class="portfolio_custom">
               <div class="col-md-12 post-thumbnail">
-                  <div class="relative"><img class="portfolio_post_image" src="https://support.ovvihq.com/wp-content/uploads/2022/09/Hardware-Setup-Tile-1-263x178.png" alt="Hardware Setup">
+                  <div class="relative"><img class="portfolio_post_image" src="'.$Icon.'" alt="'.$Title.'">
                 </div>
               </div>
               <div class="post-details col-md-10">
                 <h6 class="post-name">
-                  <a href="https://support.ovvihq.com/article-category/hardware-setup" title="Hardware Setup">Hardware Setup</a>
+                  <a href="'.$Link.'" title="'.$Title.'">'.$Title.'</a>
                 </h6>
               </div>                 
-              <div class="post-search col-md-2"><a href="https://support.ovvihq.com/article-category/hardware-setup" title="Hardware Setup"><i class="fa fa-search"></i></a></div>
+              <div class="post-search col-md-2"><a href="'.$Link.'" title="'.$Title.'"><i class="fa fa-search"></i></a></div>
             </div>
           </article>
         </div>';
