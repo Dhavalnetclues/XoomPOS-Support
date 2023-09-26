@@ -535,7 +535,7 @@ function xp_window_pos_list() {
     
     $queryArgs = [
         // your post type here 
-        'post_type'         => 'window-pos',
+        'post_type'         => 'window_pos',
         // target post status 
         'post_status'       => 'publish',
         // maximum amount of posts, use -1 to set unlimited 
