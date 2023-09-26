@@ -5,7 +5,6 @@
  * @package     ReduxFramework/Fields
  * @author      Dovy Paukstys & Kevin Provance (kprovance)
  * @version     4.0.0
- * @noinspection PhpIgnoredClassAliasDeclaration
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -29,15 +28,14 @@ if ( ! class_exists( 'Redux_Date', false ) ) {
 		 * @return        void
 		 */
 		public function render() {
-			$placeholder = $this->field['placeholder'] ?? '';
+			$placeholder = ( isset( $this->field['placeholder'] ) ) ? ' placeholder="' . $this->field['placeholder'] . '" ' : '';
 
 			echo '<input
 					data-id="' . esc_attr( $this->field['id'] ) . '"
 					type="text"
 					id="' . esc_attr( $this->field['id'] ) . '-date"
-					name="' . esc_attr( $this->field['name'] . $this->field['name_suffix'] ) . '"
+					name="' . esc_attr( $this->field['name'] . $this->field['name_suffix'] ) . '"' . esc_attr( $placeholder ) . '
 					value="' . esc_attr( $this->value ) . '"
-					placeholder="' . esc_attr( $placeholder ) . '"
 					class="redux-datepicker regular-text ' . esc_attr( $this->field['class'] ) . '" />';
 		}
 
@@ -52,7 +50,7 @@ if ( ! class_exists( 'Redux_Date', false ) ) {
 		public function enqueue() {
 			if ( $this->parent->args['dev_mode'] ) {
 				wp_enqueue_style(
-					'redux-field-date',
+					'redux-field-date-css',
 					Redux_Core::$url . 'inc/fields/date/redux-date.css',
 					array(),
 					$this->timestamp
@@ -60,7 +58,7 @@ if ( ! class_exists( 'Redux_Date', false ) ) {
 			}
 
 			wp_enqueue_script(
-				'redux-field-date',
+				'redux-field-date-js',
 				Redux_Core::$url . 'inc/fields/date/redux-date' . Redux_Functions::is_min() . '.js',
 				array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'redux-js' ),
 				$this->timestamp,

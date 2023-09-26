@@ -5,7 +5,6 @@
  * @class   Redux_Output
  * @version 3.0.0
  * @package Redux Framework/Classes
- * @noinspection PhpConditionCheckedByNextConditionInspection
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -20,10 +19,10 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		/**
 		 * Redux_Output constructor.
 		 *
-		 * @param object $redux ReduxFramework pointer.
+		 * @param object $parent ReduxFramework pointer.
 		 */
-		public function __construct( $redux ) {
-			parent::__construct( $redux );
+		public function __construct( $parent ) {
+			parent::__construct( $parent );
 
 			// Output dynamic CSS.
 			// Frontend: Maybe enqueue dynamic CSS and Google fonts.
@@ -52,10 +51,9 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		/**
 		 * Enqueue CSS and Google fonts for front end
 		 *
-		 * @return void
-		 * @throws ReflectionException Exception.
-		 * @since  1.0.0
-		 * @access public
+		 * @return      void
+		 * @since       1.0.0
+		 * @access      public
 		 */
 		public function enqueue() {
 			$core = $this->core();
@@ -81,6 +79,13 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 									$field['compiler'] = '';
 								}
 
+								/**
+								 * Field class file
+								 * filter 'redux/{opt_name}/field/class/{field.type}
+								 *
+								 * @param string        field class file
+								 * @param array $field field config data
+								 */
 								$field_type = str_replace( '_', '-', $field['type'] );
 								$core_path  = Redux_Core::$dir . "inc/fields/{$field['type']}/class-redux-$field_type.php";
 
@@ -103,14 +108,6 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 								} else {
 									$filter_path = $core_path;
 								}
-
-								/**
-								 * Field class file
-								 * filter 'redux/{opt_name}/field/class/{field.type}
-								 *
-								 * @param string $file field class file.
-								 * @param array $field field config data
-								 */
 
 								// phpcs:ignore WordPress.NamingConventions.ValidHookName
 								$class_file = apply_filters( "redux/{$core->args['opt_name']}/field/class/{$field['type']}", $filter_path, $field );
@@ -149,14 +146,14 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 									$field['output'] = array( $field['output'] );
 								}
 
-								if ( ( ( isset( $field['output'] ) && ! empty( $field['output'] ) ) || ( isset( $field['compiler'] ) && ! empty( $field['compiler'] ) ) || isset( $field['media_query'] ) && ! empty( $field['media_query'] ) || 'typography' === $field['type'] || 'icon_select' === $field['type'] || 'social_profiles' === $field['type'] ) ) {
+								if ( ( ( isset( $field['output'] ) && ! empty( $field['output'] ) ) || ( isset( $field['compiler'] ) && ! empty( $field['compiler'] ) ) || isset( $field['media_query'] ) && ! empty( $field['media_query'] ) || 'typography' === $field['type'] || 'icon_select' === $field['type'] ) ) {
 									if ( method_exists( $field_class, 'css_style' ) ) {
 										$style_data = $field_object->css_style( $field_object->value );
 									}
 								}
 
 								if ( null !== $style_data ) {
-									if ( ( ( isset( $field['output'] ) && ! empty( $field['output'] ) ) || ( isset( $field['compiler'] ) && ! empty( $field['compiler'] ) ) || 'typography' === $field['type'] || 'icon_select' === $field['type'] || 'social_profiles' === $field['type'] ) ) {
+									if ( ( ( isset( $field['output'] ) && ! empty( $field['output'] ) ) || ( isset( $field['compiler'] ) && ! empty( $field['compiler'] ) ) || 'typography' === $field['type'] || 'icon_select' === $field['type'] ) ) {
 										$field_object->output( $style_data );
 									}
 
@@ -208,7 +205,7 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		}
 
 		/**
-		 * Add a Google Fonts preconnect link.
+		 * Add Google Fonts preconnect link.
 		 *
 		 * @param array  $urls              HTML to be added.
 		 * @param string $relationship_type Handle name.
@@ -234,13 +231,14 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		 *
 		 * @param string $html   HTML to be added.
 		 * @param string $handle Handle name.
-		 * @param string $href   HREF URL of a script.
+		 * @param string $href   HREF URL of script.
+		 * @param string $media  Media type.
 		 *
 		 * @return      string
 		 * @since       4.1.15
 		 * @access      public
 		 */
-		public function add_style_attributes( string $html = '', string $handle = '', string $href = '' ): string {
+		public function add_style_attributes( string $html = '', string $handle = '', string $href = '', string $media = '' ): string {
 			if ( Redux_Functions_Ex::string_starts_with( $handle, 'redux-google-fonts-' ) ) {
 				// Revamp thanks to Harry: https://csswizardry.com/2020/05/the-fastest-google-fonts/.
 				$href      = str_replace( array( '|', ' ' ), array( '%7C', '%20' ), urldecode( $href ) );
@@ -267,7 +265,7 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		 * @access      public
 		 */
 		private function output_variables( $core, array $section = array(), array $field = array(), $value = array(), ?string $style_data = '' ) {
-			// Let's allow section overrides, please.
+			// Let's allow section overrides please.
 			if ( isset( $section['output_variables'] ) && ! isset( $field['output_variables'] ) ) {
 				$field['output_variables'] = $section['output_variables'];
 			}
@@ -310,7 +308,7 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 		}
 
 		/**
-		 * Output dynamic CSS at the bottom of HEAD
+		 * Output dynamic CSS at bottom of HEAD
 		 *
 		 * @return      void
 		 * @since       3.2.8
@@ -360,7 +358,7 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 			$field = apply_filters( "redux/field/{$core->args['opt_name']}/_can_output_css", $field );
 
 			if ( isset( $field['force_output'] ) && true === $field['force_output'] ) {
-				return true;
+				return $return;
 			}
 
 			if ( ! empty( $field['required'] ) ) {
@@ -388,5 +386,7 @@ if ( ! class_exists( 'Redux_Output', false ) ) {
 
 			return $return;
 		}
+
 	}
+
 }

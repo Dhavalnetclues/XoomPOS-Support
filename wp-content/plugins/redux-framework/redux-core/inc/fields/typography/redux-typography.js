@@ -141,7 +141,7 @@
 									buildData.push( fontData );
 								}
 
-								// If googlefonts on and had data, push into array.
+								// If googfonts on and had data, push into array.
 								if ( 1 === usingGoogleFonts || true === usingGoogleFonts && undefined !== redux.googlefonts ) {
 									buildData.push( redux.googlefonts );
 								}
@@ -169,13 +169,10 @@
 								$( this ).find( '.redux-typography-font-variant' ).select2();
 								$( this ).find( '.redux-typography-decoration' ).select2();
 
-								$( this ).find( '.redux-insights-data-we-collect-typography' ).on(
-									'click',
-									function( e ) {
-										e.preventDefault();
-										$( this ).parent().find( '.description' ).toggle();
-									}
-								);
+								$( this ).find( '.redux-insights-data-we-collect-typography' ).on( 'click', function( e ) {
+									e.preventDefault();
+									$( this ).parent().find( '.description' ).toggle();
+								});
 
 								// Init select2 for indicated fields.
 								redux.field_objects.typography.select( family, true, false, null, true );
@@ -480,9 +477,9 @@
 			// Replace the hash with a blank.
 			hexcolour = hexcolour.replace( '#', '' );
 
-			r   = parseInt( hexcolour.substring( 0, 2 ), 16 );
-			g   = parseInt( hexcolour.substring( 2, 2 ), 16 );
-			b   = parseInt( hexcolour.substring( 4, 2 ), 16 );
+			r   = parseInt( hexcolour.substr( 0, 2 ), 16 );
+			g   = parseInt( hexcolour.substr( 2, 2 ), 16 );
+			b   = parseInt( hexcolour.substr( 4, 2 ), 16 );
 			res = ( ( r * 299 ) + ( g * 587 ) + ( b * 114 ) ) / 1000;
 
 			// Instead of pure black, I opted to use WP 3.8 black, so it looks uniform.  :) - kp.
@@ -511,26 +508,24 @@
 		var script;
 		var color;
 		var units;
-		var weights;
-		var marginTopUnit;
-		var marginBottomUnit;
-		var lineHeightUnit;
-		var wordSpacingUnit;
-		var letterSpacingUnit;
-		var baseUnits;
 		var _linkclass;
 		var the_font;
 		var link;
 		var isPreviewSize;
 		var marginTop;
 		var marginBottom;
-		var allowEmptyLineHeight;
-		var defaultFontWeights;
 
-		var typekit  = false;
-		var details  = '';
-		var html     = '<option value=""></option>';
-		var selected = '';
+		var typekit              = false;
+		var details              = '';
+		var html                 = '<option value=""></option>';
+		var selected             = '';
+		var allowEmptyLineHeight = false;
+		var default_font_weights = {
+			'400': 'Normal 400',
+			'700': 'Bold 700',
+			'400italic': 'Normal 400 Italic',
+			'700italic': 'Bold 700 Italic'
+		};
 
 		// Main id for selected field.
 		mainID = $( selector ).parents( '.redux-container-typography:first' ).data( 'id' );
@@ -563,27 +558,14 @@
 		color        = that.find( '.redux-typography-color' ).val();
 		marginTop    = that.find( '.redux-typography-margin-top' ).val();
 		marginBottom = that.find( '.redux-typography-margin-bottom' ).val();
-		weights      = that.find( '.typography-style' );
-		baseUnits    = that.data( 'units' );
+		units        = that.data( 'units' );
 
-		if ( undefined === word ) {
-			word = '0';
-		}
-
-		if ( undefined === letter ) {
-			letter = '0';
-		}
-
-		if ( weights.length > 0 ) {
-			defaultFontWeights = JSON.parse( decodeURIComponent( weights.data( 'weights' ) ) );
-		}
-
-		// Is selected font a Google font?
+		// Is selected font a google font?
 		if ( true === isSelecting ) {
 			google = redux.field_objects.typography.makeBool( selVals['data-google'] );
 			that.find( '.redux-typography-google-font' ).val( google );
 		} else {
-			google = redux.field_objects.typography.makeBool( that.find( '.redux-typography-google-font' ).val() ); // Check if font is a Google font.
+			google = redux.field_objects.typography.makeBool( that.find( '.redux-typography-google-font' ).val() ); // Check if font is a google font.
 		}
 
 		if ( active ) {
@@ -615,7 +597,7 @@
 					typekit = true;
 					details = redux.fonts.typekit[family];
 				} else {
-					details = defaultFontWeights;
+					details = default_font_weights;
 				}
 			}
 
@@ -650,7 +632,7 @@
 						that.find( '.redux-typography-style' ).select2( 'destroy' );
 					}
 
-					// Insert new HTML.
+					// Instert new HTML.
 					that.find( '.redux-typography-style' ).html( html ).select2();
 
 					// SUBSETS.
@@ -701,7 +683,7 @@
 					// Destroy select2.
 					that.find( '.redux-typography-style' ).select2( 'destroy' );
 
-					// Insert new HTML.
+					// Instert new HTML.
 					that.find( '.redux-typography-style' ).html( html ).select2();
 
 					// Prettify things.
@@ -710,7 +692,7 @@
 				} else {
 					if ( that.find( '.redux-typography-style' ) ) {
 						$.each(
-							defaultFontWeights,
+							default_font_weights,
 							function( index, value ) {
 								if ( style === index || 'normal' === index ) {
 									selected = ' selected="selected"';
@@ -723,7 +705,7 @@
 							}
 						);
 
-						// Destroy select2.
+						// Destory select2.
 						if ( destroy ) {
 							that.find( '.redux-typography-style' ).select2( 'destroy' );
 						}
@@ -737,7 +719,7 @@
 			} else if ( $( selector ).hasClass( 'redux-typography-family-backup' ) && '' !== familyBackup ) {
 				that.find( '.redux-typography-font-family-backup' ).val( familyBackup );
 			} else {
-				details = defaultFontWeights;
+				details = default_font_weights;
 				if ( details ) {
 					$.each(
 						details,
@@ -753,7 +735,7 @@
 						}
 					);
 
-					// Destroy select2.
+					// Destory select2.
 					if ( destroy ) {
 						that.find( '.redux-typography-style' ).select2( 'destroy' );
 					}
@@ -851,43 +833,37 @@
 		if ( '' === size || undefined === size ) {
 			that.find( '.typography-font-size' ).val( '' );
 		} else {
-			units = that.find( '.redux-typography-size' ).data( 'unit' );
 			that.find( '.typography-font-size' ).val( size + units );
 		}
 
 		if ( '' === height || undefined === height ) {
 			that.find( '.typography-line-height' ).val( '' );
 		} else {
-			lineHeightUnit = that.find( '.redux-typography-height' ).data( 'unit' );
-			that.find( '.typography-line-height' ).val( height + lineHeightUnit );
+			that.find( '.typography-line-height' ).val( height + units );
 		}
 
 		if ( '' === word || undefined === word ) {
 			that.find( '.typography-word-spacing' ).val( '' );
 		} else {
-			wordSpacingUnit = that.find( '.redux-typography-word' ).data( 'unit' );
-			that.find( '.typography-word-spacing' ).val( word + wordSpacingUnit );
+			that.find( '.typography-word-spacing' ).val( word + units );
 		}
 
 		if ( '' === letter || undefined === letter ) {
 			that.find( '.typography-letter-spacing' ).val( '' );
 		} else {
-			letterSpacingUnit = that.find( '.redux-typography-letter' ).data( 'unit' );
-			that.find( '.typography-letter-spacing' ).val( letter + letterSpacingUnit );
+			that.find( '.typography-letter-spacing' ).val( letter + units );
 		}
 
 		if ( '' === marginTop || undefined === marginTop ) {
 			that.find( '.typography-margin-top' ).val( '' );
 		} else {
-			marginTopUnit = that.find( '.redux-typography-margin-top' ).data( 'unit' );
-			that.find( '.typography-margin-top' ).val( marginTop + marginTopUnit );
+			that.find( '.typography-margin-top' ).val( marginTop + units );
 		}
 
 		if ( '' === marginBottom || undefined === marginBottom ) {
 			that.find( '.typography-margin-bottom' ).val( '' );
 		} else {
-			marginBottomUnit = that.find( '.redux-typography-margin-bottom' ).data( 'unit' );
-			that.find( '.typography-margin-bottom' ).val( marginBottom + marginBottomUnit );
+			that.find( '.typography-margin-bottom' ).val( marginBottom + units );
 		}
 
 		// Show more preview stuff.
@@ -895,7 +871,7 @@
 			isPreviewSize = that.find( '.typography-preview' ).data( 'preview-size' );
 
 			if ( 0 === isPreviewSize ) {
-				that.find( '.typography-preview' ).css( 'font-size', size + baseUnits );
+				that.find( '.typography-preview' ).css( 'font-size', size + units );
 			}
 
 			that.find( '.typography-preview' ).css(
@@ -903,8 +879,8 @@
 					'font-weight': style,
 					'text-align': align,
 					'font-family': family + ', sans-serif',
-					'padding-top': marginTop + marginTopUnit,
-					'padding-bottom': marginBottom + marginBottomUnit
+					'padding-top': marginTop + units,
+					'padding-bottom': marginBottom + units
 				}
 			);
 
@@ -914,17 +890,13 @@
 				that.find( '.typography-preview' ).css( 'font-family', 'inherit' );
 			}
 
-			if ( height ) {
-				that.find( '.typography-preview' ).css( 'line-height', height + lineHeightUnit );
-			}
-
-			if ( word ) {
-				that.find( '.typography-preview' ).css( 'word-spacing', word + wordSpacingUnit );
-			}
-
-			if ( letter ) {
-				that.find( '.typography-preview' ).css( 'letter-spacing', letter + letterSpacingUnit );
-			}
+			that.find( '.typography-preview' ).css(
+				{
+					'line-height': height + units,
+					'word-spacing': word + units,
+					'letter-spacing': letter + units
+				}
+			);
 
 			if ( color ) {
 				that.find( '.typography-preview' ).css( 'color', color );

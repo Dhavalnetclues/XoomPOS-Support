@@ -27,6 +27,24 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php $this->actions(); ?>
 	<?php $this->tabs(); ?>
+
+	<div class="feature-section one-col">
+		<div class="col">
+			<?php // translators: %s: HTML. ?>
+			<h2><?php echo sprintf( esc_html__( 'Redux is Where the End User %s Interacts with WordPress', 'redux-framework' ), '<br />' ); ?></h2>
+			<?php echo sprintf( '<h3 style="text-align: center;">%s</h3>', esc_html__( "Redux is a foundation on which to build any interface in WordPress. It's time saved, frustrations reduced, and a unified experience.", 'redux-framework' ) ); ?>
+
+			<div class="hide" style="text-align: center;margin-top:25px;">
+				<span class="button button-secondary"><?php echo esc_html__( 'Metaboxes', 'redux-framework' ); ?></span>
+				<span class="button button-secondary hide"><?php echo esc_html__( 'Taxonomies', 'redux-framework' ); ?></span>
+				<span class="button button-secondary hide"><?php echo esc_html__( 'User Meta', 'redux-framework' ); ?></span>
+				<span class="button button-secondary"><?php echo esc_html__( 'Options Panel', 'redux-framework' ); ?></span>
+				<span class="button button-secondary"><?php echo esc_html__( 'Customizer', 'redux-framework' ); ?></span>
+				<span class="button button-secondary hide"><?php echo esc_html__( 'Gutenberg', 'redux-framework' ); ?></span>
+			</div>
+		</div>
+	</div>
+
 	<hr>
 	<?php
 
@@ -51,12 +69,14 @@ defined( 'ABSPATH' ) || exit;
 					);
 
 					// translators: %1$s: URL, %2$s: close tag.
-					printf( esc_html__( 'Maybe not! If you want to see what Redux is all about, click here to %1$sActivate Demo Mode%2$s.', 'redux-framework' ), '<a href="' . esc_url( admin_url( add_query_arg( $query_args, 'options-general.php' ) ) ) . '">', '</a>' );
+					echo sprintf( esc_html__( 'Maybe not! If you want to see what Redux is all about, click here to %1$sActivate Demo Mode%2$s.', 'redux-framework' ), '<a href="' . esc_url( admin_url( add_query_arg( $query_args, 'tools.php' ) ) ) . '">', '</a>' );
 				}
-
 				?>
+
+
 			</h3>
 		</div>
+
 		<div class="col">
 			<?php
 			if ( ! empty( $sysinfo ) && is_array( $sysinfo ) ) {
@@ -72,7 +92,6 @@ defined( 'ABSPATH' ) || exit;
 				foreach ( $sysinfo as $project_type => $products ) {
 					if ( 'theme' === $project_type ) {
 						$my_theme = wp_get_theme();
-
 						?>
 						<div class="redux-product">
 							<h2 class="name"><?php echo esc_html( $my_theme->get( 'Name' ) ); ?>
@@ -111,8 +130,8 @@ defined( 'ABSPATH' ) || exit;
 								</small>
 							</p>
 						</div>
-						<?php
 
+						<?php
 					} else {
 						foreach ( $products as $product => $data ) {
 							if ( ! isset( $plugin_index[ $product ] ) ) {
