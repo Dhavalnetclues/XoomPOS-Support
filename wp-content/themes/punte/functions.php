@@ -559,8 +559,8 @@ function xp_window_pos_list() {
 
           // Output
           $content_html .='<div class="col-lg-3 col-md-4 col-sm-6">
-          <article class="listing">
-            <div class="img-list">
+          <article class="listing" style="color:#7db9b6;">
+            <div class="img-list" style="background: #7db9b6;">
                 <div class="post-thumbnail">
                   <div class="relative"><img class="portfolio_post_image" src="'.$Icon.'" alt="'.$Title.'"></div>
                   <h6 class="list-title mb-0">'.$Title.'</h6>                  
