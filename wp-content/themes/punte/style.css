@@ -1943,16 +1943,16 @@ button.btn-transparent {
 /*-----------------Common-----------------------*/
 .form-control:focus{box-shadow:none;}
 #pune-back-top{border-radius:50px;}
-ul.punte-main-menu>li.current-menu-item>a{color:#000000;}
+ul.punte-main-menu>li.current-menu-item>a{color:#06076e;}
 button.btn-transparent{padding:0px;}
 button:focus,button,input{outline:none !important;}
 b,strong{font-weight:600;}
 label.error{color:#f00 !important;}
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{font-weight:600;}
 .page-header{border-color:#cfdfe4;}
-.breadcrumbs a:hover,.breadcrumbs a:hover span{color:#000000 !important;}
+.breadcrumbs a:hover,.breadcrumbs a:hover span{color:#06076e !important;}
 #primary {width: 100% !important;}
-.page-header .page-title{color:#000000 !important;max-width: 750px;}
+.page-header .page-title{color:#06076e !important;max-width: 750px;}
 .wpas-label{border-radius:50px;padding:.2em 1em .3em !important;}
 .wpas-btn{border-radius:50px;}
 .wpas-btn, .wpas-form-control{padding: 6px 20px;}
@@ -1978,7 +1978,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .main-side-navigation ul{padding: 5px 0;}
 .main-side-navigation .sub-menu .sub-toggle{right: -5px;}
 .main-side-navigation li >.sub-toggle{background-color:#ffffff;}
-.main-side-navigation li >.sub-toggle::after{border-bottom-color:#000000;border-right-color:#000000;}
+.main-side-navigation li >.sub-toggle::after{border-bottom-color:#06076e;border-right-color:#06076e;}
 .main-side-navigation li{padding: 10px 0;}
 .main-navigation .current_page_item > a{color:#000;}
 .video-page .list-v-tutorials .elementor-widget .elementor-icon-list-item{padding: 15px 15px 15px 80px !important;border: 1px solid #A2D893;border-radius: 8px;}
@@ -2016,7 +2016,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .login-page .bg-login .help-time{display: block;text-align: center;font-size: 37px;text-shadow: 0 3px 4px rgb(0,0,0,0.5);color:#ffffff;font-weight:600;}
 .login-page .bg-login:before{content:"";position:absolute;left:0px;top:0px;right:0px;bottom:0px;background:rgba(0,0,0,0.3);}
 .login-page .right-part{padding:0 150px;width:100%;}
-.login-page .right-part h2{color:#000000;font-weight:600;margin-bottom: 10px;}
+.login-page .right-part h2{color:#06076e;font-weight:600;margin-bottom: 10px;}
 .login-page .right-part .form-group label{color:#25b4f5;}
 .login-page .right-part .form-group input{height:50px;border-radius:0px;padding: 0 15px;}
 .login-page .right-part button{border-radius:50px;min-width:150px;height:50px;margin-top: 20px;}
@@ -2029,6 +2029,8 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .inner-search form{max-width: 450px;float: right;width: 100%;margin-top: 120px;}
 /*--------------home product------------*/
 .home-p-section{margin-top:0px !important;box-shadow:none;}
+
+
 /*--------------banner-----------*/
 .banner-text
 {
@@ -2036,12 +2038,89 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     font-size: 30px;
     color: #ffffff;
     text-align:center;
+    margin: 70px 0 0;
 }
 .banner-text span
 {
     display: block;
     font-weight: 700;
     font-size: 45px;
+}
+.banner-search
+{
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 4px 8px 4px 30px;
+    width: 650px;
+}
+.banner-search .icon-files
+{
+    width: 21px;
+}
+.banner-search .s-bar
+{
+    margin-left: 20px;
+    width: calc(100% - 150px);
+}
+.banner-search .s-bar [type="text"]
+{
+    border: 0px;
+    padding: 5px 10px 5px 0;
+    height: 25px;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+.banner-search .s-bar > label
+{
+    display: block;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #06076e;
+}
+.banner-search .search button
+{
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 45px;
+}
+.banner-search .search button i
+{
+    margin-right: 8px;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.banner-search + .s-sug
+{
+    color: #ffffff;
+    margin-top: 3px;
+}
+.banner-search + .s-sug span a
+{
+    color: #06076e;
+    font-weight: 600;
+    font-size: 13px;
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 3px 13px 5px;
+}
+.banner-search + .s-sug span a:hover
+{
+    color: #25b4f5;
+}
+.banner-search + .s-sug span + span
+{
+    margin-left: 5px;
+    display: inline-block;
+}
+.banner-search + .s-sug span.etc
+{
+    font-weight: 600;
+}
+.page-header .search-form
+{
+    display: none;
 }
 /*--------------search listing-----------*/
 .article-list .row [class*='col-']:nth-child(n+5)
@@ -2183,6 +2262,22 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     {
         font-size: 17px;
     }
+    .banner-text
+    {
+        margin-top: 45px;
+    }
+    .banner-text
+    {
+        font-size: 22px;
+    }
+    .banner-text span
+    {
+        font-size: 35px;
+    }
+    .bg-search .elementor-widget-wrap
+    {
+        background-position: 100% 240px !important;
+    }
 }
 @media (max-width:1024px)
 {
@@ -2198,6 +2293,15 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     .article-list .row [class*='col-']:nth-child(n+4)
     {
         margin-top: 30px;
+    }
+    .banner-search
+    {
+        width: 490px;
+    }
+    .bg-search .elementor-widget-wrap
+    {
+        background-size: 450px auto !important;
+        background-position: 100% 280px !important;
     }
 }
 @media (max-width:767px)
@@ -2224,6 +2328,35 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
         height: 40px;
         font-size: 16px;
     }
+    .banner-search
+    {
+        width: 100%;
+        padding: 4px 8px 4px 20px;
+    }
+    .banner-search .s-bar
+    {
+        width: calc(100% - 142px);
+        margin-left: 12px;
+    }
+    .banner-text
+    {
+        font-size: 18px;
+        margin-top: 25px;
+    }
+    .banner-text span
+    {
+        font-size: 25px;
+    }
+    .banner-search + .s-sug b
+    {
+        display: block;
+    }
+    .bg-search .elementor-widget-wrap
+    {
+        background-size: 250px auto !important;
+        background-position: center 120% !important;
+    }
+    
 }
 @media (max-width:575px)
 {
