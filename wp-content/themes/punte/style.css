@@ -2122,6 +2122,10 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     display: none;
 }
+#pune-back-top:hover
+{
+    background: #1facf3 !important;
+}
 /*--------------search listing-----------*/
 .article-list .row [class*='col-']:nth-child(n+5)
 {
