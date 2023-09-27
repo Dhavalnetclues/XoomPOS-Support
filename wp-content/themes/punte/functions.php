@@ -545,7 +545,7 @@ function xp_window_pos_list() {
     ];
     // SQL query will be executed during this line 
     $posts = new WP_Query($queryArgs);
-    $content_html = '<div class="row">';
+    $content_html = '<div class="article-list"><div class="row">';
     if ( $posts->have_posts() ) :
         while ( $posts->have_posts() ) : $posts->the_post();
           // Set variables
@@ -558,19 +558,19 @@ function xp_window_pos_list() {
             //   $product_image1 = $featured_image[0];
 
           // Output
-          $content_html .='<div class="vc_col-sm-3 wow fadeIn animated animated" style="visibility: visible; animation-name: fadeIn;">
-          <article class="single-post list-view">
-            <div class="portfolio_custom">
-              <div class="col-md-12 post-thumbnail">
-                  <div class="relative"><img class="portfolio_post_image" src="'.$Icon.'" alt="'.$Title.'">
-                </div>
-              </div>
-              <div class="post-details col-md-10">
-                <h6 class="post-name">
+          $content_html .='<div class="col-lg-3 col-md-4 col-sm-6">
+          <article class="listing">
+            <div class="img-list">
+                <div class="post-thumbnail">
+                  <div class="relative"><img class="portfolio_post_image" src="'.$Icon.'" alt="'.$Title.'"></div>
+                  <h6 class="list-title mb-0">'.$Title.'</h6>                  
+              </div>                                             
+            </div>
+            <div class="list-detail">
+                <div class="list-s-icon"><a href="'.$Link.'" title="'.$Title.'"><i class="fa fa-search"></i></a></div>
+                <h6 class="list-title mb-0">
                   <a href="'.$Link.'" title="'.$Title.'">'.$Title.'</a>
                 </h6>
-              </div>                 
-              <div class="post-search col-md-2"><a href="'.$Link.'" title="'.$Title.'"><i class="fa fa-search"></i></a></div>
             </div>
           </article>
         </div>';
@@ -580,7 +580,7 @@ function xp_window_pos_list() {
           
           endwhile;
         wp_reset_postdata();
-        $content_html .= '</div>';
+        $content_html .= '</div></div>';
       endif;
 
     return $content_html;
