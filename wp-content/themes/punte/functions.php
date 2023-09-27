@@ -531,18 +531,23 @@ function remove_footer_admin (){
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 // function for Window POS listing
-function xp_window_pos_list() { 
-    
-    $queryArgs = [
-        // your post type here 
-        'post_type'         => 'window_pos',
-        // target post status 
-        'post_status'       => 'publish',
-        // maximum amount of posts, use -1 to set unlimited 
-        'posts_per_page' => -1,
-        // type of order 
-        'order'         => 'ASC',
-    ];
+function xp_window_pos_list($atts) { 
+    // print_r($atts);die;
+    if(is_array($atts) && isset($atts['title'])){
+        $queryArgs = [
+            'post_type'         => 'window_pos_subcat',
+            'post_status'       => 'publish',
+            'posts_per_page' => -1,
+            'order'         => 'ASC',
+        ];
+    }else{
+        $queryArgs = [
+            'post_type'         => 'window_pos',
+            'post_status'       => 'publish',
+            'posts_per_page' => -1,
+            'order'         => 'ASC',
+        ];        
+    }
     // SQL query will be executed during this line 
     $posts = new WP_Query($queryArgs);
     $content_html = '<div class="article-list"><div class="row">';
@@ -574,10 +579,7 @@ function xp_window_pos_list() {
             </div>
           </article>
         </div>';
-        //   $content_html .= '<div class="product"><img src='.$Icon.' alt="'.$Title.'><h2>'.$Title.'</h2><img src='.$Icon.' alt="product-detail" class="product-detail align-right">
-        //     '.$LinkText.'<p><a href='.$Link.' target="_blank" name="Spec Sheet">Download Spec Sheet</a></p>
-        //   </div>';
-          
+        
           endwhile;
         wp_reset_postdata();
         $content_html .= '</div></div>';
@@ -587,3 +589,9 @@ function xp_window_pos_list() {
     }
     // register shortcode
 add_shortcode('window_pos', 'xp_window_pos_list');
+
+function getSubCategory_func( $atts ) {
+    $mastercat = get_userdata( $atts['master'] );
+    
+}
+add_shortcode( 'subcategory', 'getSubCategory_func' );
