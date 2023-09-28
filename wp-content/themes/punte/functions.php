@@ -473,7 +473,6 @@ add_filter( 'logout_redirect', 'ss_logout_redirect', 10, 3 );
 
 
 // wpas_add_custom_field( 'ss_my_custom_store_value',  array( 'title' => __( 'Cusom Store', 'wpas' ), 'order' => 5 ) );
-
 function ss_search_form( $form ) {
     $form = '<form role="search" method="get" class="search-form" action="' . home_url( '/' ) . '">				
                 <div class="banner-search">
@@ -572,9 +571,9 @@ function xp_window_pos_list($atts) {
               </div>                                             
             </div>
             <div class="list-detail">
-                <div class="list-s-icon"><a href="'.$Link.'" title="'.$Title.'"><i class="fa fa-search"></i></a></div>
+                <div class="list-s-icon"><a href="'.$Link.'" title="'.$LinkText.'"><i class="fa fa-search"></i></a></div>
                 <h6 class="list-title mb-0">
-                  <a href="'.$Link.'" title="'.$Title.'">'.$Title.'</a>
+                  <a href="'.$Link.'" title="'.$LinkText.'">'.$LinkText.'</a>
                 </h6>
             </div>
           </article>
