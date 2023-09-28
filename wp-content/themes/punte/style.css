@@ -2205,6 +2205,56 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     color: inherit;
 }
+/*--------------FAQs-----------*/
+.faqs p
+{
+    margin: 0px;
+}
+.faqs .elementor-accordion .elementor-tab-title
+{
+    padding: 0px;
+}
+.faqs .elementor-accordion .elementor-tab-content
+{
+    padding: 9px 0px !important;
+    height: auto !important;
+}
+.faqs .elementor-accordion .elementor-tab-title
+{
+    padding: 25px 0 25px 80px;
+    position: relative;
+}
+.faqs .elementor-accordion .elementor-tab-title:before
+{
+    content: "Q.";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    height: 45px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: rgba(230,248,254,1);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    color: #06076E;
+}
+.faqs .elementor-accordion-item + .elementor-accordion-item
+{
+    border-top: 1px solid #eeeeee !important;
+}
+.faqs .elementor-active a
+{
+    text-decoration: underline !important;
+}
+.faqs .elementor-accordion-icon
+{
+    font-size: 22px;
+}
 /*-----------------Responsive-----------*/
 /*search listing*/
 @media (min-width:1199px)
@@ -2360,7 +2410,20 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
         background-size: 250px auto !important;
         background-position: center 120% !important;
     }
-    
+    .faqs .elementor-accordion .elementor-tab-title
+    {
+        padding: 15px 0 15px 70px;
+    }
+    .faqs .elementor-accordion-icon
+    {
+        font-size: 18px;
+    }
+    .faqs .elementor-accordion .elementor-tab-title:before
+    {
+        height: 35px;
+        width: 50px;
+        font-size: 18px;
+    }
 }
 @media (max-width:575px)
 {
