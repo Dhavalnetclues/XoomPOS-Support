@@ -2119,10 +2119,10 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     font-weight: 600;
 }
-/* .page-header .search-form
+.page-header .search-form
 {
     display: none;
-} */
+}
 #pune-back-top:hover
 {
     background: #1facf3 !important;
@@ -2135,6 +2135,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .page-header .page-title
 {
     color: #ffffff !important;
+    font-size: 32px;
 }
 .breadcrumbs
 {
@@ -2153,9 +2154,17 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     transition: all linear .2s !important;
     -webkit-transition: all linear .2s !important;
 }
+.page-header nav ul.trail-items li
+{
+    vertical-align: middle;
+}
 .page-header nav ul.trail-items li.current
 {
     opacity: 0.8;
+}
+.page-header nav ul.trail-items li.current span
+{
+    font-size: 17px !important;
 }
 .page-header nav ul.trail-items li a:hover span
 {
@@ -2260,10 +2269,27 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     padding: 9px 20px !important;
     height: auto !important;
-    background: rgba(230,248,254,0.5);
+    background: #ffffff;
     border-radius: 10px;
-    border:1px solid rgb(207 239 249) !important;
+    border:1px solid #eeeeee !important;
     margin-bottom: 15px;
+    position: relative;
+}
+.faqs .elementor-accordion .elementor-tab-title:after
+{
+    content: "";
+    position: absolute;
+    background: #eeeeee;
+    width: 1px;
+    height: 0px;
+    left: 24px;
+    top: 57px;
+    transition: all linear .2s !important;
+    -webkit-transition:all linear .2s !important;
+}
+.faqs .elementor-accordion .elementor-tab-title.elementor-active:after
+{
+    height: 15px;
 }
 .faqs .elementor-accordion .elementor-tab-title
 {
@@ -2275,8 +2301,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     content: "Q.";
     position: absolute;
     left: 0px;
-    top: 0px;
-    bottom: 0px;
+    top: 11px;
     margin: auto;
     height: 45px;
     width: 55px;
@@ -2469,6 +2494,11 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
         height: 35px;
         width: 50px;
         font-size: 18px;
+        top: 10px;
+    }
+    .page-header .page-title
+    {
+        font-size: 23px;
     }
 }
 @media (max-width:575px)
