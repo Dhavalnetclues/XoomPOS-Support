@@ -121,7 +121,14 @@ jQuery(function ($) {
     } else {
         onpageOffset = 0
     }
-console.log(punte_options.enable_plx_menu);
+
+    //toggle search
+
+    $(".menu-item-search").on("click",function(){
+        $(".site-header .search-form").slideToggle();
+        $(this).toggleClass("ico-close");
+    });
+
 if(punte_options.enable_plx_menu == true ){
     /*START SMOOTH SCROLL JS*/
     $('#site-navigation').onePageNav({

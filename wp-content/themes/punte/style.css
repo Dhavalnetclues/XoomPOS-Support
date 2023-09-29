@@ -37,15 +37,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-    font-family: "Quicksand" !important;
+    font-family: 'Quicksand', sans-serif !important;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust:     100%;
+    -webkit-font-smoothing:antialiased;
 }
 
 body {
     margin: 0;
     overflow-x: hidden;
-    font-family: "Quicksand" !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: normal !important;
+    -webkit-font-smoothing:antialiased;
 }
 
 article,
@@ -1943,7 +1946,7 @@ button.btn-transparent {
 /*-----------------Common-----------------------*/
 .form-control:focus{box-shadow:none;}
 #pune-back-top{border-radius:50px;}
-ul.punte-main-menu>li.current-menu-item>a{color:#06076e;}
+ul.punte-main-menu>li.current-menu-item>a{color:#06076e;font-weight: 600;}
 button.btn-transparent{padding:0px;}
 button:focus,button,input{outline:none !important;}
 b,strong{font-weight:600;}
@@ -2085,6 +2088,8 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     font-size: 14px;
     font-weight: 600;
     height: 45px;
+    display: flex;
+    align-items: center;
 }
 .banner-search .search button i
 {
@@ -2209,6 +2214,81 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     height: 5px !important;
     top: 6px !important;
 }
+/*--------------header search--------------*/
+.menu-item-search
+{
+    margin-right: -30px;
+}
+.menu-item-search.ico-close .svg-icon
+{
+    opacity: 0;
+    visibility: hidden;
+}
+.menu-item-search.ico-close:before
+{
+    content: "\f00d";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    font-weight: 900;
+    font-size: 22px;
+    color: #ffffff;
+    left: 23px;
+    top: 17px;
+}
+.menu-item-search > a
+{
+    background: #31c2f7;
+    padding: 0 20px !important;
+}
+.menu-item-search svg
+{
+    width: 20px !important;
+    height: 20px !important;
+    fill: #ffffff !important;
+}
+.site-header .search-form
+{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    display: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+.site-header .search-form .banner-search
+{
+    border-radius: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.site-header .search-form .form-control
+{
+    border: 0px;
+    height: 55px;
+    font-size: 18px;
+    padding: 0 60px 0 20px;
+}
+.site-header .search-form .search-submit
+{
+    background: none;
+    position: absolute;
+    right: 17px;
+    top: 6px;
+    color: #06076e;
+    font-size: 20px;
+    padding: 0;
+}
+.home .page-header
+{
+    display: none;
+}
+.searchwp-live-search-results
+{
+    margin-top: -5px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 12px 10px rgba(0,0,0,0.03);
+    padding: 22px;
+}
 /*--------------search listing-----------*/
 .article-list .row [class*='col-']:nth-child(n+5)
 {
@@ -2241,7 +2321,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     position: absolute;
     top: 70px;
-    left: 25px;
+    left: 21px;
     right: 25px;
     font-size: 20px;
     font-weight: 700;
@@ -2321,7 +2401,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 }
 .faqs .elementor-accordion .elementor-tab-title.elementor-active:after
 {
-    height: 15px;
+    height: 37px;
 }
 .faqs .elementor-accordion .elementor-tab-title
 {
@@ -2547,6 +2627,10 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     .page-header .page-title
     {
         font-size: 23px;
+    }
+    .faqs .elementor-accordion .elementor-tab-title:after
+    {
+        top: 43px;
     }
 }
 @media (max-width:575px)
