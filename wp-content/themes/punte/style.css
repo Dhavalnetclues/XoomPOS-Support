@@ -2285,10 +2285,11 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .searchwp-live-search-results
 {
     margin-top: -5px;
-    background: #fff;
+    background: #fff !important;
     border-top: 1px solid #eee;
     box-shadow: 0 12px 10px rgba(0,0,0,0.03);
     padding: 15px 22px;
+    transform: translateZ(0);
 }
 .searchwp-live-search-results.searchwp-live-search-results-showing
 {
@@ -2339,7 +2340,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 }
 .searchwp-live-search-results .searchwp-live-search-result a:before
 {
-    content: "\f054";
+    content: "\f0c1";
     font-family: "Font Awesome 5 Free";
     position: absolute;
     right: 25px;
