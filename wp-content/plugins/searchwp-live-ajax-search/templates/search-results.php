@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php $post_type = get_post_type_object( get_post_type() ); ?>
 		<div class="searchwp-live-search-result" role="option" id="" aria-selected="false">
 			<p><a href="<?php echo esc_url( get_permalink() ); ?>">
-				<?php the_title(); ?> &raquo;
+				<?php the_title(); ?>
 			</a></p>
 		</div>
 	<?php endwhile; ?>
