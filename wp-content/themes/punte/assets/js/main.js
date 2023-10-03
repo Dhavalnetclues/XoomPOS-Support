@@ -123,7 +123,7 @@ jQuery(function ($) {
     }
 
     //toggle search
-
+    
     $(".menu-item-search,.punte-mobile-search").on("click",function(){
         $(".site-header .search-form").slideToggle();
         $(this).toggleClass("ico-close");
