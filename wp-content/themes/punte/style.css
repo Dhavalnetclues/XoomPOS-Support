@@ -2362,6 +2362,13 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     margin: 0;
 }
+.searchwp-live-search-no-results
+{
+    padding: 0 !important;
+    width: 100%;
+    margin: 0;
+    opacity: 0.5;
+}
 /*--------------search listing-----------*/
 .article-list .row [class*='col-']:nth-child(n+5)
 {
@@ -2525,6 +2532,20 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     {
         right: 15px;
         color: #31c2f7;
+    }
+}
+@media (min-width:1400px) and (max-width:1700px)
+{
+    .banner-section .elementor-container
+    {
+        min-height:450px !important;
+    }
+}
+@media (min-width:1200px) and (max-width:1400px)
+{
+    .banner-section .elementor-container
+    {
+        min-height:400px !important;
     }
 }
 @media (max-width:1700px)
