@@ -954,7 +954,8 @@ object {
 
 /*---Header Styles---*/
 .site-header{
-    position: relative;
+    position: sticky;
+    top: 0px;
     z-index: 99;   
 }
 
@@ -2236,10 +2237,13 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     left: 23px;
     top: 17px;
 }
-.menu-item-search > a
+.menu-item-search > span
 {
     background: #31c2f7;
     padding: 0 20px !important;
+    line-height: 75px;
+    display: block;
+    cursor: pointer;
 }
 .menu-item-search svg
 {
@@ -2361,6 +2365,13 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 .searchwp-live-search-results  .searchwp-live-search-result p
 {
     margin: 0;
+}
+.searchwp-live-search-no-results
+{
+    padding: 0 !important;
+    width: 100%;
+    margin: 0;
+    opacity: 0.5;
 }
 /*--------------search listing-----------*/
 .article-list .row [class*='col-']:nth-child(n+5)
@@ -2527,6 +2538,20 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
         color: #31c2f7;
     }
 }
+@media (min-width:1400px) and (max-width:1700px)
+{
+    .banner-section .elementor-container
+    {
+        min-height:450px !important;
+    }
+}
+@media (min-width:991px) and (max-width:1400px)
+{
+    .banner-section .elementor-container
+    {
+        min-height:400px !important;
+    }
+}
 @media (max-width:1700px)
 {
     .our-support-section{margin-top:-100px;}
@@ -2677,6 +2702,20 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     {
         max-width: 670px;
     }
+    .punte-mobile-search
+    {
+        width: auto;
+        height: auto;
+        line-height: initial;
+        right: 80px;
+        top: 20px;
+    }
+    .punte-mobile-search.ico-close:before
+    {
+        left: 0px;
+        top: 0px;
+        color: initial;
+    }
 }
 @media (max-width:767px)
 {
@@ -2752,21 +2791,7 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     .faqs .elementor-accordion .elementor-tab-title:after
     {
         top: 43px;
-    }
-    .punte-mobile-search
-    {
-        width: auto;
-        height: auto;
-        line-height: initial;
-        right: 80px;
-        top: 20px;
-    }
-    .punte-mobile-search.ico-close:before
-    {
-        left: 0px;
-        top: 0px;
-        color: initial;
-    }
+    }    
     .searchwp-live-search-results .searchwp-live-search-result
     {
         width: calc(50% - 10px);
