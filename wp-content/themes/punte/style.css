@@ -2522,6 +2522,31 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
 {
     font-size: 22px;
 }
+.main-side-navigation .current-menu-item a
+{
+    font-weight: 600;
+    color: #000000 !important;
+}
+/*404*/
+.page-id-8609 .page-header
+{
+    display: none;
+}
+.txt-404 .elementor-heading-title span
+{
+    position: relative;
+}
+.txt-404 .elementor-heading-title span:before
+{
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 65px;
+    height: 65px;
+    width: 32px;
+    border-radius: 100%;
+    background: #31C2F7;
+}
 /*-----------------Responsive-----------*/
 /*search listing*/
 @media (min-width:1199px)
@@ -2668,6 +2693,13 @@ ul.punte-main-menu ul.sub-menu li + li{border-top:1px solid rgba(0,0,0,0.1);}
     .searchwp-live-search-results .searchwp-live-search-result a:before
     {
         right: 15px;
+    }
+    .txt-404 .elementor-heading-title span:before
+    {
+        left: 21px;
+        top: 47px;
+        height: 50px;
+        width: 25px;
     }
 }
 @media (max-width:1024px)
